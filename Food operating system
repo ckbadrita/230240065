@@ -71,16 +71,28 @@ catch (NumberFormatExcep�on e) {
 enter a number or 'done'.");
  }
  }
-
-
-
-
-
-
-
-
-
-
-
+double totalCost = 
+order.stream().mapToDouble(item -> 
+item.price).sum();
+ if (totalCost > 20) {
+ for (FoodOffer offer : offers) {
+ 
+ if (offer.descrip�on.equals("Free soda with every 
+order above $20")) {
+ 
+ totalCost -= offer.discount;
+ System.out.println("Applied offer: " + 
+offer.descrip�on);
+ }
+ }
+ }
+ System.out.println("Your order summary:");
+ order.forEach(item -> System.out.println("- " + 
+item));
+System.out.prin�("Total cost a�er offers: 
+$%.2f%n", totalCost);
+scanner.close(); 
+}
+}
 
 
