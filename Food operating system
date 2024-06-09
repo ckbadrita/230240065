@@ -15,3 +15,72 @@ public class FoodOrderSystem {
 price);
  }
  }
+sta�c class FoodOffer {
+ String descrip�on;
+ double discount;
+FoodOffer(String descrip�on, double discount) {
+ this.descrip�on = descrip�on;
+ this.discount = discount;
+ }
+ }
+public sta�c void main (String [] args) {
+ List<FoodItem> menu = List.of(
+ new FoodItem("Burger", 5.99),
+ new FoodItem("Pizza", 8.99),
+ new FoodItem("Salad", 4.99),
+new FoodItem("Soda", 1.99),
+new FoodItem("Fries", 2.99)
+);
+List<FoodOffer> offers = List.of(
+new FoodOffer("Discount on total order", 2.00),
+new FoodOffer("Free soda with every order 
+above $20", 1.99)
+ );
+List<FoodItem> order = new ArrayList<>();
+Scanner scanner = new Scanner (System.in);
+System.out.println("Welcome to the Food 
+Ordering System!");
+ System.out.println("Please select items from 
+the menu:");
+ for (int i = 0; i < menu.size(); i++) {
+System.out.prin�("%d. %s%n", i + 1,
+menu.get(i));
+ }
+while (true) {
+ System.out.print("Enter item number to 
+order (or type 'done' to finish): ");
+ String input = scanner.nextLine();
+ if (input.equalsIgnoreCase("done"))
+break;
+try {
+ int itemNumber = Integer.parseInt(input);
+ if (itemNumber > 0 && itemNumber <= 
+menu.size()) {
+order.add(menu.get(itemNumber - 1));
+System.out.println("Added " +
+menu.get(itemNumber - 1).name + " to your 
+order.");
+} 
+else {
+System.out.println("Invalid item number. Please 
+try again.");
+}
+} 
+catch (NumberFormatExcep�on e) {
+ System.out.println("Invalid input. Please 
+enter a number or 'done'.");
+ }
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
