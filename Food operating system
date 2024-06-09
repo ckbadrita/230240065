@@ -1,1 +1,17 @@
-
+package foodordersystem;
+import java.u�l.ArrayList;
+import java.u�l.List;
+import java.u�l.Scanner;
+public class FoodOrderSystem {
+ sta�c class FoodItem {
+ String name;
+ double price;
+ FoodItem(String name, double price) {
+ this.name = name;
+ this.price = price;
+ }
+ public String toString() {
+ return name + " - $" + String.format("%.2f", 
+price);
+ }
+ }
