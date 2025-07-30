@@ -1,9 +1,9 @@
 package foodordersystem;
-import java.u�l.ArrayList;
-import java.u�l.List;
-import java.u�l.Scanner;
+import java.url.ArrayList;
+import java.url.List;
+import java.url.Scanner;
 public class FoodOrderSystem {
- sta�c class FoodItem {
+ static class FoodItem {
  String name;
  double price;
  FoodItem(String name, double price) {
@@ -15,15 +15,15 @@ public class FoodOrderSystem {
 price);
  }
  }
-sta�c class FoodOffer {
- String descrip�on;
+static class FoodOffer {
+ String description;
  double discount;
-FoodOffer(String descrip�on, double discount) {
- this.descrip�on = descrip�on;
+FoodOffer(String description, double discount) {
+ this.description = description;
  this.discount = discount;
  }
  }
-public sta�c void main (String [] args) {
+public static void main (String [] args) {
  List<FoodItem> menu = List.of(
  new FoodItem("Burger", 5.99),
  new FoodItem("Pizza", 8.99),
@@ -43,7 +43,7 @@ Ordering System!");
  System.out.println("Please select items from 
 the menu:");
  for (int i = 0; i < menu.size(); i++) {
-System.out.prin�("%d. %s%n", i + 1,
+System.out.print("%d. %s%n", i + 1,
 menu.get(i));
  }
 while (true) {
@@ -66,7 +66,7 @@ System.out.println("Invalid item number. Please
 try again.");
 }
 } 
-catch (NumberFormatExcep�on e) {
+catch (NumberFormatException e) {
  System.out.println("Invalid input. Please 
 enter a number or 'done'.");
  }
@@ -77,19 +77,19 @@ item.price).sum();
  if (totalCost > 20) {
  for (FoodOffer offer : offers) {
  
- if (offer.descrip�on.equals("Free soda with every 
+ if (offer.description.equals("Free soda with every 
 order above $20")) {
  
  totalCost -= offer.discount;
  System.out.println("Applied offer: " + 
-offer.descrip�on);
+offer.description);
  }
  }
  }
  System.out.println("Your order summary:");
  order.forEach(item -> System.out.println("- " + 
 item));
-System.out.prin�("Total cost a�er offers: 
+System.out.print("Total cost after offers: 
 $%.2f%n", totalCost);
 scanner.close(); 
 }
